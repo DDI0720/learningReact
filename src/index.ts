@@ -13,4 +13,4 @@ app.get("/", (req: express.Request, res: express.Response)=>{
 })
 
 app.listen(4000, ()=>{console.log('finally >.<')});
-//ts-node 못찾고 끝
+//ts-node 못찾고 끝ㅎ
