@@ -1,16 +1,21 @@
-import express from "express";
+import express, { Request, Response } from "express";
 
-class App {
-    public application : express.Application;
-    constructor () {
-        this.application = express();
+class Server {
+    private app: express.Application;
+
+    constructor(){
+        this.app = express();
+        this.router();
+    }
+
+    private router() {
+        this.app.get('/', (req: Request, res: Response)=>{
+            res.json({hello: 'world'})
+        })
+    }
+    public getInstance () {
+        return this.app;
     }
 }
 
-const app = new App().application;
-app.get("/", (req: express.Request, res: express.Response)=>{
-    res.send("start");
-})
-
-app.listen(4000, ()=>{console.log('finally >.<')});
-//ts-node 못찾고 끝ㅎ
+export default Server
