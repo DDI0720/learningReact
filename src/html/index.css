@@ -1,0 +1,9 @@
+.wrap {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid aquamarine;
+}
+
+.wrap div {
+    border: 1px salmon;
+}

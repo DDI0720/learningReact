@@ -1,5 +1,5 @@
 import express from "express";
-import Server from "./src/index";
+import Server from "./src/ts/index";
 
 const server = new Server();
 const app: express.Application = server.getInstance();
