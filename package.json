@@ -4,7 +4,7 @@
   "description": "",
   "main": "./dist/www.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc && nodemon ../dist/src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
     "typescript": "^3.9.5"
+  },
+  "devDependencies": {
+    "ts-node": "^8.10.2"
   }
 }

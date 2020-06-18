@@ -9,8 +9,9 @@ class Server {
     }
 
     private router() {
+        this.app.use(express.static('./'));
         this.app.get('/', (req: Request, res: Response)=>{
-            res.json({hello: 'world'})
+            res.sendFile('index.html', {root: './src/html'});
         })
     }
     public getInstance () {

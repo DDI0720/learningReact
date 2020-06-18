@@ -1,9 +1,19 @@
 .wrap {
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid aquamarine;
+    border: 1px solid whitesmoke;
 }
 
-.wrap div {
-    border: 1px salmon;
+.switch {
+    border: 2px black;
+}
+
+.on{
+    border: 1px yellow;
+    background-color: yellow;
+}
+
+.off {
+    border: 1px whitesmoke;
+    background-color: whitesmoke;
 }
