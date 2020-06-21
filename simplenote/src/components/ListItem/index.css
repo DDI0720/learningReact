@@ -1,0 +1,18 @@
+div.list-item {
+    border-bottom: 0.1px solid rgb(61, 61, 61);
+    padding: 25px 0;
+    margin-right: 25px;
+}
+
+div.list-item > div.title {
+    font-size: 23px;
+    min-height: 30px;
+    max-height: 30px;
+}
+
+div.list-item > div.list-item-contents {
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+}

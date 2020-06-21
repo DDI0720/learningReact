@@ -1,14 +1,14 @@
 import React from 'react';
-import './index.css';
+// import './index.css';
 
 class Header extends React.Component {
     render () {
         return (
             <div className="header">
                 <div className="title">
-                    <span></span>
+                    <span>타이틀</span>
                 </div>
-                <div class="button">
+                <div className="buttons">
                     <button>추가</button>
                     <button>삭제</button>
                 </div>
