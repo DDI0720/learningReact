@@ -5,6 +5,11 @@ import List from '../List';
 import Note from '../Note';
 
 class App extends React.Component {
+  state = {
+    notes: [],
+    activeId: null,
+  }
+
   render() {
     return (
       <div className="app">
