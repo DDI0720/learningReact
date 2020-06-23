@@ -53,7 +53,11 @@ class App extends React.Component {
             activeId={activeId}
             onListItemClick={this.handleListItemClick}
             />
-            {notes.length !== 0 && <Note notes={activeNote} />}
+            {notes.length !== 0 &&
+              <Note
+                notes={activeNote}
+                onEditNote={this.handleEditNote}
+                />}
         </div>
       </div>
     );
