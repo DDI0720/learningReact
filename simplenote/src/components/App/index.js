@@ -26,13 +26,21 @@ class App extends React.Component {
     activeId: '간장연어장',
   }
 
+  handleListItemClick = (id) => {
+    this.setState({activeId: id});
+  }
+
   render() {
     const { notes, activeId } = this.state;
     return (
       <div className="app">
         <Header />
         <div className="container">
-          <List notes={notes} activeId={activeId}/>
+          <List
+            notes={notes}
+            activeId={activeId}
+            onListItemClick={this.handleListITemClick}
+            />
           <Note />
         </div>
       </div>
