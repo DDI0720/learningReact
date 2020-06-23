@@ -3,28 +3,11 @@ import './index.css';
 import Header from '../Header';
 import List from '../List';
 import Note from '../Note';
+import stateObj from '../state.js';
+import {generateId} from '../../utils/util';
 
 class App extends React.Component {
-  state = {
-    notes: [
-      {
-        id: '안녕 난 첫번째 노트',
-        title: '그래 난 타이틀1',
-        contents: '내용1'
-      },
-      {
-        id: '히히히히히',
-        title: '제목22',
-        contents: '내용22'
-      },
-      {
-        id: '간장연어장',
-        title: '탄산수',
-        contents: '마요네즈'
-      },
-  ],
-    activeId: '간장연어장',
-  }
+  state = stateObj;
 
   handleListItemClick = (id) => {
     this.setState({activeId : id});
@@ -40,13 +23,39 @@ class App extends React.Component {
     });
   }
 
+  handleAddNote = () => {
+    const id = generateId();
+    this.setState({
+      notes: [
+        ...this.state.notes,
+        {
+          id,
+          title: '제목없음',
+          contents: '내용을 입력하세요'
+        }
+      ],
+      activeId: id
+    })
+  }
+
+  handleDeleteNote = () => {
+    const notes = this.state.notes.filter((item)=>item.id !== this.state.activeId);
+    this.setState({
+      notes,
+      activeId: notes.length === 0 ? null : notes[0].id
+    })
+  }
   render() {
     const { notes, activeId } = this.state;
     const activeNote = notes.filter((item)=>item.id === activeId)[0];
 
     return (
       <div className="app">
-        <Header />
+        <Header
+          onAddNote = {this.handleAddNote}
+          onDeleteNote = {this.handleDeleteNote}
+        />
+
         <div className="container">
           <List
             notes={notes}
