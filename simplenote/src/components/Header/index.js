@@ -3,7 +3,7 @@ import React from 'react';
 
 class Header extends React.Component {
     render () {
-        const {onAddNote} = this.props;
+        const {onAddNote, onDeleteNote} = this.props;
 
         return (
             <div className="header">
@@ -12,7 +12,7 @@ class Header extends React.Component {
                 </div>
                 <div className="buttons">
                     <button onClick={onAddNote}>추가</button>
-                    <button>삭제</button>
+                    <button onClick={onDeleteNote}>삭제</button>
                 </div>
             </div>
         );

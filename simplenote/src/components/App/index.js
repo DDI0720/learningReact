@@ -43,7 +43,7 @@ class App extends React.Component {
     this.setState({
       notes,
       activeId: notes.length === 0 ? null : notes[0].id
-    })
+    });
   }
   render() {
     const { notes, activeId } = this.state;
