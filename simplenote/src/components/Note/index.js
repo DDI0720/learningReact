@@ -3,17 +3,19 @@ import './index.css';
 
 class Note extends React.Component {
     render() {
-        const { notes } = this.props;
+        const { notes, onEditNote } = this.props;
         const { title, contents } = notes;
         return (
             <div className="note">
                 <input
                     className="title"
                     value = {title}
+                    onChange = {(e)=>onEditNote('title', e)}
                 />
                 <textarea
                     className="note-contents"
                     value = {contents}
+                    onChange = {(e)=>onEditNote('contents', e)}
                 />
             </div>
         )
