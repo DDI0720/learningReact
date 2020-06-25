@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
-import {firestore} from './Firebase';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  useEffect(()=>{
-    firestore.collection('projects').get().then(()=>{
-      console.log('성공');
-    });
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
