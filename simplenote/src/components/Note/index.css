@@ -1,0 +1,20 @@
+div.note {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px;
+}
+
+div.note > input.title {
+    width: inherit;
+    max-height: 30px;
+    height: 30px;
+    border: 0;
+}
+
+div.note > textarea.note-contents {
+    width: inherit;
+    height: 100%;
+    margin-top: 10px;
+    border: 0;
+}

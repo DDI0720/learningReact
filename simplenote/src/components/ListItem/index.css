@@ -1,17 +1,25 @@
 div.list-item {
     border-bottom: 0.1px solid rgb(61, 61, 61);
-    padding: 25px 0;
+    padding: 20px 0;
     margin-right: 25px;
 }
 
 div.list-item > div.title {
-    font-size: 23px;
+    font-size: 16px;
     min-height: 30px;
     max-height: 30px;
 }
 
 div.list-item > div.list-item-contents {
-    font-size: 16px;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+div.active{
+    font-size: 10px;
+    font-weight: bold;
     text-overflow: ellipsis;
     overflow-x: hidden;
     white-space: nowrap;

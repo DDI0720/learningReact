@@ -1,5 +1,5 @@
 import React from 'react';
-// import './index.css';
+import './index.css';
 
 class Header extends React.Component {
     render () {
@@ -8,11 +8,13 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <div className="title">
-                    <span>타이틀</span>
+                    <span>
+                        Note-App
+                    </span>
                 </div>
                 <div className="buttons">
-                    <button onClick={onAddNote}>추가</button>
-                    <button onClick={onDeleteNote}>삭제</button>
+                    <button onClick={onAddNote}>ADD</button>
+                    <button onClick={onDeleteNote}>DEL</button>
                 </div>
             </div>
         );

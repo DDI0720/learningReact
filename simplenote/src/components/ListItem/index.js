@@ -3,7 +3,7 @@ import './index.css';
 
 class ListItem extends React.Component {
     render() {
-        const {key, id, active, title, contents, onClick} = this.props;
+        const {active, title, contents, onClick} = this.props;
         return (
             <div className={active ? "list-item active" : "list-item"} onClick={onClick}>
                 <div className="title">{title ? title : '제목'}</div>

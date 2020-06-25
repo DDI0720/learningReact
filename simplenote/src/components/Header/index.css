@@ -3,13 +3,28 @@ div.header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
-    border-bottom: 1px solid rgb(202, 93, 111);
+    padding: 10px 20px 20px 30px;
+    border-bottom: 2px solid rgba(202, 93, 111, 0.5);
 }
 
-/* div.header > div.buttons > button {
-    font-size: 14px;
-    background-color: rgba(0,0,0,0.1);
+div.header > div.title > span {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+div.header > div.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+div.header > div.buttons > button {
+    font-size: 10px;
+    font-weight: bold;
+    margin: 5px;
+    box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.2);
     border: 0;
+    width: 40px;
+    height: 40px;
+    background-color: white;
     cursor: pointer;
-} */
+}
