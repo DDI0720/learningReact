@@ -1,5 +1,16 @@
-
+const dataBase = firebase.database();
 
 const AddNote = () => {
-    firebase.database().ref
+    dataBase.ref('notes/').set({
+        title: '제목없음',
+        contents: '내용없음'
+    }, function(error){
+        if(error) {
+            console.error(error);
+        } else {
+            console.log('success!');
+        }
+    })
 }
+
+export default AddNote;

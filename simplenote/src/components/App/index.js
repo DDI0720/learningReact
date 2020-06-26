@@ -5,6 +5,7 @@ import List from '../List';
 import Note from '../Note';
 import stateObj from '../state.js';
 import {generateId} from '../../utils/util';
+import AddNote from '../Query/query_write';
 
 class App extends React.Component {
   state = stateObj;
