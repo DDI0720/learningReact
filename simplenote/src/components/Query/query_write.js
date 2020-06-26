@@ -1,7 +1,8 @@
-const dataBase = firebase.database();
+import * as firebase from "firebase/app";
+const dataBase = firebase.database;
 
 const AddNote = () => {
-    dataBase.ref('notes/').set({
+    dataBase().ref('notes/').set({
         title: '제목없음',
         contents: '내용없음'
     }, function(error){

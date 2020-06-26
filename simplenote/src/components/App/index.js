@@ -12,6 +12,7 @@ class App extends React.Component {
 
   handleListItemClick = (id) => {
     this.setState({activeId : id});
+    AddNote();
   }
 
   handleEditNote = (type, e) => {
