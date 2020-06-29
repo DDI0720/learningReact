@@ -4,15 +4,25 @@ import Header from '../Header';
 import List from '../List';
 import Note from '../Note';
 import stateObj from '../state.js';
-import {generateId} from '../../utils/util';
-import AddNote from '../Query/query_write';
+import { generateId } from '../../utils/util';
+import firestore from '../../firebaseConfig';
 
 class App extends React.Component {
   state = stateObj;
+  
+  componentDidMount() {
+    const dbNote = this.state.notes;
+    firestore.collection('note').get()
+    .then(docs=>{
+      docs.forEach(doc=>{
+        dbNote.push({id: 'sdf'});
+        console.log(doc.data())
+      })
+    })
+  }
 
   handleListItemClick = (id) => {
     this.setState({activeId : id});
-    AddNote();
   }
 
   handleEditNote = (type, e) => {
@@ -47,6 +57,7 @@ class App extends React.Component {
       activeId: notes.length === 0 ? null : notes[0].id
     });
   }
+
   render() {
     const { notes, activeId } = this.state;
     const activeNote = notes.filter((item)=>item.id === activeId)[0];
