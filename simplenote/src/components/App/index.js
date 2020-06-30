@@ -11,13 +11,14 @@ class App extends React.Component {
   state = stateObj;
   
   componentDidMount() {
-    const dbNote = this.state.notes;
+    const notes = this.state.notes;
+    
     firestore.collection('note').get()
     .then(docs=>{
       docs.forEach(doc=>{
-        dbNote.push({id: 'sdf'});
-        console.log(doc.data())
+        notes.push({id: doc.id, title: doc.title, contents: doc.contents});
       })
+      this.setState({ notes })
     })
   }
 
