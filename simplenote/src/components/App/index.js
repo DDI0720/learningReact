@@ -16,7 +16,7 @@ class App extends React.Component {
     firestore.collection('note').get()
     .then(docs=>{
       docs.forEach(doc=>{
-        notes.push({id: doc.id, title: doc.title, contents: doc.contents});
+        notes.push({id: doc.data().id, title: doc.data().title, contents: doc.data().contents});
       })
       this.setState({ notes })
     })
