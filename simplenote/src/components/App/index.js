@@ -24,10 +24,7 @@ class App extends React.Component {
   }
 
   handleListItemClick = (activeId) => {
-    // console.log('ㅇㅏ이디',activeId)
-    // console.log(this.state)
     this.setState({activeId});
-    // console.log(this.state)
   }
 
   handleEditNote = (type, e) => {
@@ -57,7 +54,8 @@ class App extends React.Component {
 
   handleDeleteNote = () => {
     const id = this.state.activeId;
-    firestore.collection('notes').doc(id).delete().then(()=>{
+    console.log('아이디 : ', id)
+    firestore.collection('note').doc(id).delete().then(()=>{
       const notes = this.state.notes.filter((note)=> note.id !== id);
       this.setState({
         notes,
