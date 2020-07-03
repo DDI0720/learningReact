@@ -23,8 +23,11 @@ class App extends React.Component {
     })
   }
 
-  handleListItemClick = (id) => {
-    this.setState({activeId : id});
+  handleListItemClick = (activeId) => {
+    // console.log('ㅇㅏ이디',activeId)
+    // console.log(this.state)
+    this.setState({activeId});
+    // console.log(this.state)
   }
 
   handleEditNote = (type, e) => {
@@ -33,7 +36,7 @@ class App extends React.Component {
 
     note[type] = e.target.value;
     this.setState({
-      notes,
+      notes
     });
   }
 
@@ -53,11 +56,19 @@ class App extends React.Component {
   }
 
   handleDeleteNote = () => {
-    const notes = this.state.notes.filter((item)=>item.id !== this.state.activeId);
-    this.setState({
-      notes,
-      activeId: notes.length === 0 ? null : notes[0].id
-    });
+    const id = this.state.activeId;
+    firestore.collection('notes').doc(id).delete().then(()=>{
+      const notes = this.state.notes.filter((note)=> note.id !== id);
+      this.setState({
+        notes,
+        activeId: notes.length === 0 ? null : notes[0].id
+      });
+    })
+    // const notes = this.state.notes.filter((item)=>item.id !== this.state.activeId);
+    // this.setState({
+    //   notes,
+    //   activeId: notes.length === 0 ? null : notes[0].id
+    // });
   }
 
   render() {

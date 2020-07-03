@@ -1,6 +1,6 @@
 const state = {
     notes: [],
-    activeId: 'default',
+    activeId: null,
 }
 
 export default state;
