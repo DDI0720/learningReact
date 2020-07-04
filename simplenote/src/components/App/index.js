@@ -4,7 +4,7 @@ import Header from '../Header';
 import List from '../List';
 import Note from '../Note';
 import stateObj from '../state.js';
-import { generateId } from '../../utils/util';
+//import { generateId } from '../../utils/util';
 import firestore from '../../firebaseConfig';
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
     .then(docs=>{
       docs.forEach(doc=>{
         const data = doc.data();
-        notes.push({id: data.id, title: data.title, contents: data.contents});
+        notes.push({title: data.title, contents: data.contents});
       })
       this.setState({ notes })
     })
@@ -38,30 +38,44 @@ class App extends React.Component {
   }
 
   handleAddNote = () => {
-    const id = generateId();
-    this.setState({
-      notes: [
-        ...this.state.notes,
-        {
-          id,
-          title: '제목없음',
-          contents: '내용을 입력하세요'
-        }
-      ],
-      activeId: id
+    const newNote = {
+      title: '제목없음',
+      contents: '내용을 입력하세요'
+    }
+
+    firestore.collection('note').add(newNote).then((id)=>{
+      this.setState({
+        notes: [
+          ...this.state.notes,
+          newNote
+        ],
+        activeId: id
+      })
     })
+
+    // const id = generateId();
+    // this.setState({
+    //   notes: [
+    //     ...this.state.notes,
+    //     {
+    //       id,
+    //       title: '제목없음',
+    //       contents: '내용을 입력하세요'
+    //     }
+    //   ],
+    //   activeId: id
+    // })
   }
 
-  handleDeleteNote = () => {
-    const id = this.state.activeId;
-    console.log('아이디 : ', id)
-    firestore.collection('note').doc(id).delete().then(()=>{
-      const notes = this.state.notes.filter((note)=> note.id !== id);
-      this.setState({
-        notes,
-        activeId: notes.length === 0 ? null : notes[0].id
-      });
-    })
+  handleDeleteNote = (id) => {
+    firestore.collection("note").doc(id).delete();
+    //.then(()=>{
+    //   const notes = this.state.notes.filter((note)=> note.id !== id);
+    //   this.setState({
+    //     notes,
+    //     activeId: notes.length === 0 ? null : notes[0].id
+    //   });
+    // })
     // const notes = this.state.notes.filter((item)=>item.id !== this.state.activeId);
     // this.setState({
     //   notes,
@@ -76,6 +90,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header
+          activeNote={activeNote}
           onAddNote = {this.handleAddNote}
           onDeleteNote = {this.handleDeleteNote}
         />
