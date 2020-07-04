@@ -17,7 +17,7 @@ class App extends React.Component {
     .then(docs=>{
       docs.forEach(doc=>{
         const data = doc.data();
-        notes.push({title: data.title, contents: data.contents});
+        notes.push({id: doc.id, title: data.title, contents: data.contents});
       })
       this.setState({ notes })
     })
@@ -38,33 +38,22 @@ class App extends React.Component {
   }
 
   handleAddNote = () => {
-    const newNote = {
+    firestore.collection('note').add({
       title: '제목없음',
       contents: '내용을 입력하세요'
-    }
-
-    firestore.collection('note').add(newNote).then((id)=>{
+    }).then((doc)=>{
       this.setState({
         notes: [
           ...this.state.notes,
-          newNote
+          {
+            id: doc.id,
+            title: '제목없음',
+            contents: '내용을 입력하세요'
+          }
         ],
-        activeId: id
+        activeId: doc.id
       })
     })
-
-    // const id = generateId();
-    // this.setState({
-    //   notes: [
-    //     ...this.state.notes,
-    //     {
-    //       id,
-    //       title: '제목없음',
-    //       contents: '내용을 입력하세요'
-    //     }
-    //   ],
-    //   activeId: id
-    // })
   }
 
   handleDeleteNote = (id) => {
