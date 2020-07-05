@@ -59,7 +59,8 @@ class App extends React.Component {
     })
   }
 
-  handleDeleteNote = (id) => {
+  handleDeleteNote = () => {
+    const id = this.state.activeId;
     firestore.collection("note").doc(id).delete();
     //.then(()=>{
     //   const notes = this.state.notes.filter((note)=> note.id !== id);
@@ -82,7 +83,6 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header
-          activeNote={activeNote}
           onAddNote = {this.handleAddNote}
           onDeleteNote = {this.handleDeleteNote}
         />
