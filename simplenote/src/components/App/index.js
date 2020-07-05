@@ -38,7 +38,10 @@ class App extends React.Component {
   }
 
   handleAddNote = () => {
-    firestore.collection('note').add({
+    const ref = firestore.collection('note').doc();
+    console.log(ref.id)
+    ref.set({
+      id: ref.id,
       title: '제목없음',
       contents: '내용을 입력하세요'
     }).then((doc)=>{
@@ -46,12 +49,12 @@ class App extends React.Component {
         notes: [
           ...this.state.notes,
           {
-            id: doc.id,
+            id: ref.id,
             title: '제목없음',
             contents: '내용을 입력하세요'
           }
         ],
-        activeId: doc.id
+        activeId: ref.id
       })
     })
   }
