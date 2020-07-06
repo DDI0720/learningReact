@@ -39,7 +39,6 @@ class App extends React.Component {
 
   handleAddNote = () => {
     const ref = firestore.collection('note').doc();
-    console.log(ref.id)
     ref.set({
       id: ref.id,
       title: '제목없음',
@@ -61,19 +60,13 @@ class App extends React.Component {
 
   handleDeleteNote = () => {
     const id = this.state.activeId;
-    firestore.collection("note").doc(id).delete();
-    //.then(()=>{
-    //   const notes = this.state.notes.filter((note)=> note.id !== id);
-    //   this.setState({
-    //     notes,
-    //     activeId: notes.length === 0 ? null : notes[0].id
-    //   });
-    // })
-    // const notes = this.state.notes.filter((item)=>item.id !== this.state.activeId);
-    // this.setState({
-    //   notes,
-    //   activeId: notes.length === 0 ? null : notes[0].id
-    // });
+    firestore.collection("note").doc(id).delete().then(()=>{
+      const notes = this.state.notes.filter((note)=> note.id !== id);
+      this.setState({
+        notes,
+        activeId: notes.length === 0 ? null : notes[notes.length-1].id
+      });
+    })
   }
 
   render() {
