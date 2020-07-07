@@ -29,12 +29,18 @@ class App extends React.Component {
 
   handleEditNote = (type, e) => {
     const notes = [...this.state.notes];
-    const note = notes.find((item)=>item.id === this.state.activeId)
+    const note = notes.find((item)=>item.id === this.state.activeId);
+    const ref = firestore.collection('note').doc(this.state.activeId);
 
+    //업데이트
+    ref.update(type, e.target.value).then(()=>{
+      console.log('1')
+    })
     note[type] = e.target.value;
     this.setState({
       notes
     });
+
   }
 
   handleAddNote = () => {
