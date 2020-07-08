@@ -33,9 +33,11 @@ class App extends React.Component {
     const ref = firestore.collection('note').doc(this.state.activeId);
 
     //업데이트
-    ref.update(type, e.target.value).then(()=>{
-      console.log('1')
-    })
+    window.setTimeout((type, e)=>{
+      ref.update(type, e.target.value).then(()=>{
+        console.log('1')
+      })
+    },1000)
     note[type] = e.target.value;
     this.setState({
       notes
