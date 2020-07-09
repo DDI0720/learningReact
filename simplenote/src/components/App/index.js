@@ -57,7 +57,7 @@ class App extends React.Component {
           ...this.state.notes,
           {
             id: ref.id,
-            title: '제목없음',
+            title: '제목을 입력하세요',
             contents: '내용을 입력하세요'
           }
         ],
