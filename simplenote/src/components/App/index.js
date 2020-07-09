@@ -35,7 +35,7 @@ class App extends React.Component {
     //업데이트
     window.setTimeout(()=>{
       ref.update(type, e.target.value).then(()=>{
-        console.log('1')
+        console.log('2 ㅋㅋ')
       })
     },1000)
     note[type] = e.target.value;
