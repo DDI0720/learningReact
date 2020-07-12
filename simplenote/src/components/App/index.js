@@ -30,14 +30,17 @@ class App extends React.Component {
   handleEditNote = (type, e) => {
     const notes = [...this.state.notes];
     const note = notes.find((item)=>item.id === this.state.activeId);
-    const ref = firestore.collection('note').doc(this.state.activeId);
     
     //업데이트
     note[type] = e.target.value;
     this.setState({
       notes
     });
+  }
 
+  handleSaveNote = (type, e) => {
+    const ref = firestore.collection('note').doc(this.state.activeId);
+    ref.update(type, e.target.value);
   }
 
   handleAddNote = () => {
@@ -93,6 +96,7 @@ class App extends React.Component {
               <Note
                 notes={activeNote}
                 onEditNote={this.handleEditNote}
+                onSaveNote={this.handleSaveNote}
                 />}
         </div>
       </div>
