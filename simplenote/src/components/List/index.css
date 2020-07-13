@@ -2,5 +2,5 @@ div.list {
     min-width: 430px;
     width: 430px;
     height: 100%;
-    border-right: 1px solid black;
+    border-right: 2px solid rgba(0,0,0,0.5);
 }
