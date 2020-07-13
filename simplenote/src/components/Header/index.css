@@ -4,7 +4,7 @@ div.header{
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px 20px 30px;
-    border-bottom: 2px solid rgba(202, 93, 111, 0.5);
+    border-bottom: 5px solid rgba(202, 93, 111, 0.5);
 }
 
 div.header > div.title > span {
