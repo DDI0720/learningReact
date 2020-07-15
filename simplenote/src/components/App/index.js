@@ -23,10 +23,12 @@ class App extends React.Component {
     })
   }
 
+  //클릭
   handleListItemClick = (activeId) => {
     this.setState({activeId});
   }
 
+  //수정
   handleEditNote = (type, e) => {
     const notes = [...this.state.notes];
     const note = notes.find((item)=>item.id === this.state.activeId);
@@ -38,11 +40,13 @@ class App extends React.Component {
     });
   }
 
+  //저장
   handleSaveNote = (type, e) => {
     const ref = firestore.collection('note').doc(this.state.activeId);
     ref.update(type, e.target.value);
   }
 
+  //새노트
   handleAddNote = () => {
     const ref = firestore.collection('note').doc();
     ref.set({
@@ -64,6 +68,7 @@ class App extends React.Component {
     })
   }
 
+  //삭제
   handleDeleteNote = () => {
     const id = this.state.activeId;
     firestore.collection("note").doc(id).delete().then(()=>{
