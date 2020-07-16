@@ -10,6 +10,7 @@ class List extends React.Component {
                 {notes.map((item)=>{
                     const {id, title, contents} = item;
                     return (
+                        //요소만 전달하고 구체적인 그림은 ListItem 에서 작업
                         <ListItem
                             key = {id}
                             id = {id}
