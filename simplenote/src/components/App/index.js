@@ -13,6 +13,7 @@ class App extends React.Component {
   componentDidMount() {
     const notes = this.state.notes;
     
+    //파이어스토어에서 저장된 노트들 정보를 가져와 그려주는 부분
     firestore.collection('note').get()
     .then(docs=>{
       docs.forEach(doc=>{
