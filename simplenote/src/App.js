@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
-// import * as firebase from "firebase/app";
-// import "firebase/database";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  // useEffect(()=>{
-  //   firebase.initializeApp(firebaseConfig);
-  //   const database = firebase.database();
-  // }, [])
-
   return (
     <div className="App">
       <header className="App-header">
