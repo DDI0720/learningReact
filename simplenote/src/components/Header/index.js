@@ -13,8 +13,8 @@ class Header extends React.Component {
                     </span>
                 </div>
                 <div className="buttons">
-                    <button onClick={onAddNote}>ADD</button>
-                    <button onClick={onDeleteNote}>DEL</button>
+                    <button onClick={onAddNote}>+</button>
+                    <button onClick={onDeleteNote}> - </button>
                 </div>
             </div>
         );
