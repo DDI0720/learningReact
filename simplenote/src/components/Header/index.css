@@ -18,7 +18,6 @@ div.header > div.buttons {
 }
 
 div.header > div.buttons > button {
-    font-size: 10px;
     font-weight: bold;
     margin: 5px;
     box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.2);
@@ -27,4 +26,12 @@ div.header > div.buttons > button {
     height: 40px;
     background-color: white;
     cursor: pointer;
+}
+
+div.header > div.buttons > button.addBtn {
+    font-size: 15px;
+}
+
+div.header > div.buttons > button.delBtn {
+    font-size: 20px;
 }
