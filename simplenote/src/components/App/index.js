@@ -34,14 +34,14 @@ class App extends React.Component {
     const notes = [...this.state.notes];
     const note = notes.find((item)=>item.id === this.state.activeId);
     
-    //업데이트
+    //업데이트는 안하고 ui만 바뀜, 포커스 잃었을때 저장함
     note[type] = e.target.value;
     this.setState({
       notes
     });
   }
 
-  //저장
+  //저장. 업데이트.
   handleSaveNote = (type, e) => {
     const ref = firestore.collection('note').doc(this.state.activeId);
     ref.update(type, e.target.value);
