@@ -47,7 +47,7 @@ class App extends React.Component {
     ref.update(type, e.target.value);
   }
 
-  //뉴노트....
+  //뉴노트
   handleAddNote = () => {
     const ref = firestore.collection('note').doc();
     ref.set({
