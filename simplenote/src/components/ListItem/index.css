@@ -5,16 +5,18 @@ div.list-item {
 }
 
 div.list-item > div.title {
-    font-size: 16px;
+    font-size: 18px;
     min-height: 30px;
     max-height: 30px;
 }
 
 div.list-item > div.list-item-contents {
-    font-size: 10px;
+    font-size: 13px;
+    padding-top: 5px;
     text-overflow: ellipsis;
     overflow-x: hidden;
     white-space: nowrap;
+    color: rgb(94, 92, 92);
 }
 
 div.active{
