@@ -9,7 +9,7 @@ import firestore from '../../firebaseConfig';
 
 class App extends React.Component {
   state = stateObj;
-  
+
   componentDidMount() {
     const notes = this.state.notes;
     
@@ -18,7 +18,7 @@ class App extends React.Component {
     .then(docs=>{
       docs.forEach(doc=>{
         const data = doc.data();
-        notes.push({id: doc.id, title: data.title, contents: data.contents});
+        notes.push({id: doc.id, title: data.title, contents: data.contents, time: data.time}); //타임 추가
       })
       this.setState({ notes })
     })
@@ -44,7 +44,10 @@ class App extends React.Component {
   //저장. 업데이트.
   handleSaveNote = (type, e) => {
     const ref = firestore.collection('note').doc(this.state.activeId);
+
     ref.update(type, e.target.value);
+    ref.update('time', newDate());
+    console.log('저장시간 : ', newDate())
   }
 
   //뉴노트
@@ -61,11 +64,13 @@ class App extends React.Component {
           {
             id: ref.id,
             title: '제목을 입력하세요',
-            contents: '내용을 입력하세요'
+            contents: '내용을 입력하세요',
+            time: newDate()
           }
         ],
         activeId: ref.id
       })
+      console.log('추가시간 : ', newDate())
     })
   }
 
@@ -110,4 +115,7 @@ class App extends React.Component {
   }
 }
 
+const newDate = () => {
+  return Number(new Date())
+}
 export default App;
