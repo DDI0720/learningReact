@@ -18,7 +18,10 @@ class App extends React.Component {
     .then(docs=>{
       docs.forEach(doc=>{
         const data = doc.data();
-        notes.push({id: doc.id, title: data.title, contents: data.contents, time: data.time}); //타임 추가
+        notes.push({id: doc.id, title: data.title, contents: data.contents, time: data.time});
+      })
+      notes.sort((a,b)=>{
+        return b.time - a.time
       })
       this.setState({ notes })
     })
@@ -47,7 +50,6 @@ class App extends React.Component {
 
     ref.update(type, e.target.value);
     ref.update('time', newDate());
-    console.log('저장시간 : ', newDate())
   }
 
   //뉴노트
@@ -70,7 +72,6 @@ class App extends React.Component {
         ],
         activeId: ref.id
       })
-      console.log('추가시간 : ', newDate())
     })
   }
 
