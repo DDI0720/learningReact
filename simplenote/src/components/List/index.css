@@ -1,6 +1,6 @@
 div.list {
-    min-width: 430px;
-    width: 430px;
+    min-width: 30%;
+    max-width: 30%;
     height: 100%;
     border-right: 2px solid rgba(0,0,0,0.5);
 }

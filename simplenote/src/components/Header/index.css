@@ -3,7 +3,7 @@ div.header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px 20px 30px;
+    padding: 10px 20px 20px 10px;
     border-bottom: 5px solid rgba(202, 93, 111, 0.5);
 }
 

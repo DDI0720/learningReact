@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "simple-triple"
+    "default": "simple-triple",
+    "simple-triple": "simple-triple"
+  },
+  "targets": {
+    "simple-triple": {
+      "hosting": {
+        "build": [
+          "simple-triple"
+        ]
+      }
+    }
   }
 }

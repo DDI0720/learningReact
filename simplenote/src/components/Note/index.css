@@ -6,15 +6,24 @@ div.note {
 }
 
 div.note > input.title {
-    width: inherit;
-    max-height: 30px;
-    height: 30px;
+    width: 95%;
+    max-height: 1%;
+    min-height: 1%;
+    overflow: hidden;
+    padding: 1% 1%;
     border: 0;
 }
 
 div.note > textarea.note-contents {
-    width: inherit;
-    height: 100%;
-    margin-top: 10px;
+    max-width: 95%;
+    min-width: 95%;
+    min-height: 50%;
+    height: auto;
+    padding: 1% 1%;
+    margin-top: 1%;
     border: 0;
+}
+
+div.note > input.title :focus {
+    border: none;
 }
